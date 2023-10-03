@@ -4,6 +4,7 @@ let allData = [
     name: "dominos",
     description: "fresh pizzas!",
     location: "123 main street",
+    img: "null",
     
 },
 {
