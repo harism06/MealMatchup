@@ -25,7 +25,9 @@ let allData = [
 function loadCards() {
     allData.forEach((data)=>{
         let x = document.getElementsByClassName("search-results")[0]
-        x.appendChild(data)})
+        console.log(x)
+        console.log(data)
+        x.appendChild(getCard(data))})
     console.log("abc")
 }
 
