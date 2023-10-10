@@ -36,16 +36,32 @@ function loadCards() {
 }
 
 function getCard(cardData) {
-    let container = document.getElementsByClassName("restuarant-card")[0]
-    let img = document.getElementsByClassName("restuarant-img")[0]
-    let title = document.getElementsByClassName("restuarant-title")[0]
-    let eta = document.getElementsByClassName("restuarant-eta")[0]
-    let ratings = document.getElementsByClassName("restuarant-ratings")[0]
+    let container = document.createElement("div")
+    container.classList.add("restaurant-card")
+    let img = document.createElement("img")
+    img.classList.add("restaurant-img")
+    let title = document.createElement("p")
+    title.classList.add("restaurant-title")
+    let eta = document.createElement("p")
+    eta.classList.add("restaurant-eta")
+    let ratings = document.createElement("p")
+    ratings.classList.add("restaurant-ratings")
+    let showRestaurantButton = document.createElement("button")
+    showRestaurantButton.classList.add("restaurant-button")
+    showRestaurantButton.onclick = function () {
+        location.href = "../restaurant/restaurant-info.html";
+    };
 
     img.setAttribute("src", cardData.img)
+    container.appendChild(img)
     title.innerHTML = cardData.name
+    container.appendChild(title)
     eta.innerHTML = cardData.eta
+    container.appendChild(eta)
     ratings.innerHTML = cardData.ratings
+    container.appendChild(ratings)
+    showRestaurantButton.innerHTML = "View Restaurant"
+    container.appendChild(showRestaurantButton)
     console.log(container)
     return container;
 
