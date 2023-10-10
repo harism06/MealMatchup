@@ -5,8 +5,13 @@
 .restuarant-card {
     border: 1px solid black;
     display: inline-block;
+    padding: 10px;
 }
 
 .restuarant-img {
     width: 150px;
+}
+
+.restuarant-card, .restuarant-img, .restuarant-title {
+    text-align: center;
 }
