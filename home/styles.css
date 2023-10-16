@@ -3,13 +3,15 @@
 }
 
 .restaurant-card {
-    border: 1px solid black;
+    border: 3px solid black;
     display: inline-block;
     padding: 10px;
+    margin: 5px;
 }
 
 .restaurant-img {
     width: 150px;
+    height: 150px;
 }
 
 .restaurant-card, .restaurant-img, .restaurant-title {
