@@ -1,13 +1,28 @@
-let allData = []
-
 function loadCards() {
-    fetch('../retaurant-data.json')
+    fetch('../data/restaurant-data.json')
     .then((response) => response.json())
     .then((json) => json.forEach((data)=>{
         let x = document.getElementById("search-results")
         console.log(data)
         x.appendChild(getCard(data))}));
     
+}
+
+function searchRestaurants() {
+    let searchInput = document.getElementById("search-input").value;
+
+    let searchResults = document.getElementById("search-results")
+    searchResults.innerHTML = "";
+
+    fetch("../data/restuarant-data.json")
+    .then((response) => response.json())
+    .then((json) => {
+        json.forEach((data) => {
+            if(data.name.toLowerCase().includes(searchInput.toLowerCase())) {
+                searchResults.appendChild(getCard(data))
+            }
+        })
+    })
 }
 
 function getCard(cardData) {
@@ -22,10 +37,11 @@ function getCard(cardData) {
     let showRestaurantButton = document.createElement("button")
     showRestaurantButton.classList.add("restaurant-button")
     showRestaurantButton.onclick = ()=>{
-        location.href = "../restaurant/restaurant-info.html"
+        location.href = "../restaurant/restaurant-info.html?id=" + cardData.id;
     }
 
     img.setAttribute("src", cardData.img)
+    showRestaurantButton.setAttribute("id", cardData.id)
     container.appendChild(img)
     title.innerHTML = cardData.name
     container.appendChild(title)
@@ -36,9 +52,14 @@ function getCard(cardData) {
     container.appendChild(ratings)
     showRestaurantButton.innerHTML = "View Restaurant"
     container.appendChild(showRestaurantButton)
-    console.log(container)
+    // console.log(container)
     return container;
 
 }
 
-window.onload = loadCards
+window.onload = function () {
+    loadCards()
+
+    let searchButton = document.getElementById("search-button")
+    searchButton.addEventListener("click", searchRestaurants)
+}
