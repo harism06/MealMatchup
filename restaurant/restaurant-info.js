@@ -3,35 +3,48 @@ function getRestaurantDataById(restaurantId) {
     .then((response) => (response.json()))
     .then((data) => {
         let restaurant = data.find((item) => item.id == restaurantId)
-        console.log(restaurant)
         populateRestaurantData(restaurant)
     })
     
 }
 
 function populateRestaurantData(restaurant) {
+    let restaurantImg = document.getElementById("restaurant-img")
+    restaurantImg.setAttribute("src", restaurant.img)
     // get the restaurant's title
     let restaurantName = document.getElementById("restaurant-title")
     restaurantName.innerHTML = restaurant.name
-    getMenuItems(restaurant)
+    loadMenuItems(restaurant)
 }
 
-function getMenuItems(restaurant) {
+function loadMenuItems(restaurant) {
     let allMenu = restaurant.menu
-    
-    let itemOne = document.getElementById("1")
-    let itemTwo = document.getElementById("2")
-    let itemThree = document.getElementById("3")
-    let itemFour = document.getElementById("4")
-    let itemFive = document.getElementById("5")
+    console.log(allMenu)
+    allMenu.forEach((data) => {
+        console.log(data)
+        //declating the variables
+        let allMenu = document.getElementById("menu-items")
+        let itemContainer = document.createElement("div")
+        itemContainer.classList.add("item-container")
+        let checkBox = document.createElement("input")
+        checkBox.setAttribute("id", data.id)
+        checkBox.setAttribute("type", "checkbox")
+        let itemName = document.createElement("span")
+        itemName.classList.add("item-name")
 
-    // itemOne.innerHTML = allMenu.forEach(())
-    // console.log(itemOne)
+        allMenu.appendChild(itemContainer)
+        itemContainer.appendChild(checkBox)
+        itemContainer.appendChild(itemName)
+        console.log(allMenu)
+
+        itemName.innerHTML = data.name
+    })
+
 }
 
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search)
-    const restaurantId = urlParams.get("id")
+    const restaurantId = urlParams.get("restaurantId")
 
     getRestaurantDataById(restaurantId)
 }

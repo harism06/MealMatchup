@@ -10,10 +10,14 @@
 }
 
 .restaurant-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 
 .restaurant-card, .restaurant-img, .restaurant-title {
+    text-align: center;
+}
+
+h1 {
     text-align: center;
 }

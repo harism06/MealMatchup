@@ -3,7 +3,7 @@ function loadCards() {
     .then((response) => response.json())
     .then((json) => json.forEach((data)=>{
         let allCards = document.getElementById("search-results")
-        console.log(data)
+        // console.log(data)
         allCards.appendChild(getCard(data))}));
     
 }
@@ -37,7 +37,7 @@ function getCard(cardData) {
     let showRestaurantButton = document.createElement("button")
     showRestaurantButton.classList.add("restaurant-button")
     showRestaurantButton.onclick = ()=>{
-        location.href = "../restaurant/restaurant-info.html?id=" + cardData.id;
+        location.href = "../restaurant/restaurant-info.html?restaurantId=" + cardData.id;
     }
 
     img.setAttribute("src", cardData.img)
