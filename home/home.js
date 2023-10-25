@@ -2,9 +2,9 @@ function loadCards() {
     fetch('../data/restaurant-data.json')
     .then((response) => response.json())
     .then((json) => json.forEach((data)=>{
-        let x = document.getElementById("search-results")
+        let allCards = document.getElementById("search-results")
         console.log(data)
-        x.appendChild(getCard(data))}));
+        allCards.appendChild(getCard(data))}));
     
 }
 
