@@ -1,50 +1,91 @@
+let allMenu;
+
 function getRestaurantDataById(restaurantId) {
-    fetch("../data/restaurant-data.json")
-    .then((response) => (response.json()))
+  fetch("../data/restaurant-data.json")
+    .then((response) => response.json())
     .then((data) => {
-        let restaurant = data.find((item) => item.id == restaurantId)
-        populateRestaurantData(restaurant)
-    })
-    
+      let restaurant = data.find((item) => item.id == restaurantId);
+      populateRestaurantData(restaurant);
+    });
 }
 
 function populateRestaurantData(restaurant) {
-    let restaurantImg = document.getElementById("restaurant-img")
-    restaurantImg.setAttribute("src", restaurant.img)
-    // get the restaurant's title
-    let restaurantName = document.getElementById("restaurant-title")
-    restaurantName.innerHTML = restaurant.name
-    loadMenuItems(restaurant)
+  let restaurantImg = document.getElementById("restaurant-img");
+  let restaurantName = document.getElementById("restaurant-title");
+
+  restaurantImg.setAttribute("src", restaurant.img);
+  restaurantName.innerHTML = restaurant.name;
+
+  loadMenuItems(restaurant);
 }
 
 function loadMenuItems(restaurant) {
-    let allMenu = restaurant.menu
-    console.log(allMenu)
-    allMenu.forEach((data) => {
-        console.log(data)
-        //declating the variables
-        let allMenu = document.getElementById("menu-items")
-        let itemContainer = document.createElement("div")
-        itemContainer.classList.add("item-container")
-        let checkBox = document.createElement("input")
-        checkBox.setAttribute("id", data.id)
-        checkBox.setAttribute("type", "checkbox")
-        let itemName = document.createElement("span")
-        itemName.classList.add("item-name")
+  allMenu = restaurant.menu;
 
-        allMenu.appendChild(itemContainer)
-        itemContainer.appendChild(checkBox)
-        itemContainer.appendChild(itemName)
-        console.log(allMenu)
+  allMenu.forEach((data) => {
+    let allMenu = document.getElementById("menu-items");
+    let itemContainer = document.createElement("div");
+    let checkbox = document.createElement("input");
+    let itemName = document.createElement("span");
 
-        itemName.innerHTML = data.name
-    })
+    itemContainer.classList.add("item-container");
+    itemName.classList.add("item-name");
 
+    checkbox.setAttribute("id", data.id);
+    checkbox.setAttribute("type", "checkbox");
+
+    allMenu.appendChild(itemContainer);
+    itemContainer.appendChild(checkbox);
+    itemContainer.appendChild(itemName);
+    // console.log(data);
+    itemName.innerHTML = data.name;
+  });
+  let confirmOrderButton = document.querySelector("button");
+  confirmOrderButton.addEventListener("click", confirmOrder);
 }
 
-window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.search)
-    const restaurantId = urlParams.get("restaurantId")
+function confirmOrder() {
+  let checkboxes = document.querySelectorAll("input");
+  let selectedMenuItems = [];
 
-    getRestaurantDataById(restaurantId)
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      let menuItemId = checkbox.id;
+      selectedMenuItems.push(menuItemId);
+    }
+  });
+  // console.log(selectedMenuItems);
+  getSelectedItemsData(selectedMenuItems);
 }
+
+function getSelectedItemsData(selectedItemIds) {
+  // console.log(selectedItemIds);
+  if (allMenu) {
+    let menu = allMenu;
+
+    let selectedItemsData = selectedItemIds.map((itemId) => {
+      return menu.find((item) => item.id == itemId);
+    });
+
+    let totalCost = selectedItemsData.reduce(
+      (total, item) => total + item.cost,
+      0
+    );
+    let estCost = document.getElementById("est-cost");
+    estCost.innerHTML = "$" + totalCost.toFixed(2);
+
+    let totalTime = selectedItemsData.reduce(
+      (total, item) => total + item.timing,
+      0
+    );
+    let estTime = document.getElementById("est-time");
+    estTime.innerHTML = totalTime + " minutes";
+  }
+}
+
+window.onload = function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const restaurantId = urlParams.get("restaurantId");
+
+  getRestaurantDataById(restaurantId);
+};

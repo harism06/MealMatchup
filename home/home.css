@@ -1,23 +1,25 @@
 .restaurant-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .restaurant-card {
-    border: 3px solid black;
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
+  border: 3px solid black;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
 }
 
 .restaurant-img {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
-.restaurant-card, .restaurant-img, .restaurant-title {
-    text-align: center;
+.restaurant-card,
+.restaurant-img,
+.restaurant-title {
+  text-align: center;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
