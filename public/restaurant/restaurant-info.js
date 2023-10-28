@@ -61,7 +61,10 @@ function confirmOrder() {
   let selectedMenuItems = [];
   let distanceInput = document.getElementById("distance-input");
   let distance = distanceInput.value;
-  console.log(distance);
+  let deliveryTime = distance * (3 / 2);
+  let uberPay = deliveryTime.toFixed(2);
+  let doordashPay = (deliveryTime * (3 / 4)).toFixed(2);
+  console.log(deliveryTime);
 
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
@@ -86,14 +89,18 @@ function getSelectedItemsData(selectedItemIds) {
       (total, item) => total + item.cost,
       0
     );
-    let estCost = document.getElementById("est-cost");
-    estCost.innerHTML = "$" + totalCost.toFixed(2);
+    let estCost = document.getElementsByClassName("est-cost");
+    console.log(estCost);
+    estCost[0].innerHTML = "$" + totalCost.toFixed(2);
+    estCost[1].innerHTML = "$" + totalCost.toFixed(2);
 
     let totalTime = selectedItemsData.reduce(
       (total, item) => total + item.timing,
       0
     );
-    let estTime = document.getElementById("est-time");
-    estTime.innerHTML = totalTime + " minutes";
+    let estTime = document.getElementsByClassName("est-time");
+    console.log(estTime);
+    estTime[0].innerHTML = totalTime + " minutes";
+    estTime[1].innerHTML = totalTime + " minutes";
   }
 }
