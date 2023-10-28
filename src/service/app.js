@@ -1,14 +1,13 @@
 const express = require("express");
 const app = express();
+const port = 3000;
 
-// Set up your middleware and routes here
-// For example, you can serve static files (HTML, CSS, JS) like this:
-app.use(express.static("public"));
+app.use(express.static("../public"));
 
-// Define API routes if needed
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
-// Start the Express server
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Example app listening on port ${port}`);
 });

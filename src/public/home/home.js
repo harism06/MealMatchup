@@ -5,7 +5,7 @@ function loadCards() {
       json.forEach((data) => {
         let allCards = document.getElementById("search-results");
         allCards.appendChild(getCard(data));
-        console.log(data.ratings);
+        // console.log(data.ratings);
       })
     );
 }
@@ -37,7 +37,7 @@ function getCard(cardData) {
   container.appendChild(showRestaurantButton);
 
   title.innerHTML = cardData.name;
-  ratings.innerHTML = "[Ratings]";
+  ratings.innerHTML = "\n";
   showRestaurantButton.innerHTML = "View Restaurant";
 
   // ratings.innerHTML = cardData.ratings
