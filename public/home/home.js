@@ -24,8 +24,7 @@ function getCard(cardData) {
 
   showRestaurantButton.classList.add("restaurant-button");
   showRestaurantButton.onclick = () => {
-    location.href =
-      "../restaurant/restaurant-info.html?restaurantId=" + cardData.id;
+    location.href = `../restaurant/restaurant-info.html?restaurantId=${cardData.id}`;
   };
 
   img.setAttribute("src", cardData.img);

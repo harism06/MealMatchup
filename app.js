@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.use(express.static("../public"));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.redirect("/home/home.html");
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`food-delivery-app listening on port ${port}`);
 });
