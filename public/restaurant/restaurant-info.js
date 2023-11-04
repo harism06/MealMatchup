@@ -9,7 +9,7 @@ window.onload = function () {
 };
 
 function getRestaurantDataById(restaurantId) {
-  fetch("../data/restaurant-data.json")
+  fetch("http://localhost:3000/restaurants")
     .then((response) => response.json())
     .then((data) => {
       let restaurant = data.find((item) => item.id == restaurantId);
