@@ -1,5 +1,5 @@
 function loadCards() {
-  fetch("http://localhost:3000/restaurants")
+  fetch("http://localhost:3000/restaurants/home")
     .then((response) => response.json())
     .then((json) =>
       json.forEach((data) => {

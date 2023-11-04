@@ -9,7 +9,7 @@ window.onload = function () {
 };
 
 function getRestaurantDataById(restaurantId) {
-  fetch("http://localhost:3000/restaurants")
+  fetch(`http://localhost:3000/restaurants/restaurant-info?id=${restaurantId}`)
     .then((response) => response.json())
     .then((data) => {
       let restaurant = data.find((item) => item.id == restaurantId);
@@ -72,7 +72,7 @@ function confirmOrder() {
       selectedMenuItems.push(menuItemId);
     }
   });
-  // console.log(selectedMenuItems);
+
   getSelectedItemsData(selectedMenuItems);
 }
 
@@ -85,12 +85,23 @@ function getSelectedItemsData(selectedItemIds) {
       return menu.find((item) => item.id == itemId);
     });
     console.log(selectedItemsData);
+    let jsonData = JSON.stringify(selectedItemsData);
+    console.log(jsonData);
+
+    fetch("http://localhost:3000/restaurants/userData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: jsonData,
+    });
+
     let totalCost = selectedItemsData.reduce(
       (total, item) => total + item.cost,
       0
     );
     let estCost = document.getElementsByClassName("est-cost");
-    console.log(estCost);
+    // console.log(estCost);
     estCost[0].innerHTML = "$" + totalCost.toFixed(2);
     estCost[1].innerHTML = "$" + totalCost.toFixed(2);
 
@@ -99,7 +110,7 @@ function getSelectedItemsData(selectedItemIds) {
       0
     );
     let estTime = document.getElementsByClassName("est-time");
-    console.log(estTime);
+    // console.log(estTime);
     estTime[0].innerHTML = totalTime + " minutes";
     estTime[1].innerHTML = totalTime + " minutes";
   }
