@@ -43,10 +43,10 @@ app.post("/restaurants/userData", (req, res) => {
 
   console.log("Received user data:", userData);
   console.log(getSubtotal(userData));
-  // console.log(getUberFees(subtotal));
-  // console.log(getDoorDashFees(subtotal));
-  // console.log(uberTotal(uberFees));
-  // console.log(doorDashTotal(doorDashFees));
+  getUberFees(subtotal);
+  getDoorDashFees(subtotal);
+  uberTotal(uberFees);
+  doorDashTotal(doorDashFees);
   console.log(timeToCook(totalTime));
 
   function getSubtotal(userData) {
