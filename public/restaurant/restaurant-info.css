@@ -14,3 +14,7 @@
   border: 5px black solid;
   margin: 2px;
 }
+
+body {
+  padding-bottom: 200px;
+}

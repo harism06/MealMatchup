@@ -38,10 +38,6 @@ function getCard(cardData) {
   title.innerHTML = cardData.name;
   ratings.innerHTML = "\n";
   showRestaurantButton.innerHTML = "View Restaurant";
-
-  // ratings.innerHTML = cardData.ratings
-  // I will add the rating later but i plan on using images (like stars)
-  // so jus like copy paste the img boilerplate
   return container;
 }
 

@@ -50,7 +50,6 @@ function loadMenuItems(restaurant) {
   });
 
   let confirmOrderButton = document.querySelector("button");
-  // confirmOrderButton.addEventListener("click", confirmOrder);
   confirmOrderButton.onclick = () => {
     confirmOrder();
   };
@@ -59,12 +58,13 @@ function loadMenuItems(restaurant) {
 function confirmOrder() {
   let checkboxes = document.querySelectorAll("input");
   let selectedMenuItems = [];
-  let distanceInput = document.getElementById("distance-input");
-  let distance = distanceInput.value;
-  let deliveryTime = distance * (3 / 2);
-  let uberPay = deliveryTime.toFixed(2);
-  let doordashPay = (deliveryTime * (3 / 4)).toFixed(2);
-  console.log(deliveryTime);
+  let lastInput = checkboxes[checkboxes.length - 1];
+  let userInput = lastInput.value;
+
+  if (!userInput || userInput <= 0) {
+    alert("Please enter the mileage for delivery.");
+    return; // Stop further execution
+  }
 
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
@@ -73,45 +73,85 @@ function confirmOrder() {
     }
   });
 
-  getSelectedItemsData(selectedMenuItems);
-}
+  if (selectedMenuItems.length === 0) {
+    alert("Please select at least one item.");
+    return; // Stop further execution
+  }
 
-function getSelectedItemsData(selectedItemIds) {
-  // console.log(selectedItemIds);
   if (allMenu) {
     let menu = allMenu;
 
-    let selectedItemsData = selectedItemIds.map((itemId) => {
+    let selectedItemsData = selectedMenuItems.map((itemId) => {
       return menu.find((item) => item.id == itemId);
     });
-    console.log(selectedItemsData);
-    let jsonData = JSON.stringify(selectedItemsData);
-    console.log(jsonData);
 
     fetch("http://localhost:3000/restaurants/userData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: jsonData,
-    });
-
-    let totalCost = selectedItemsData.reduce(
-      (total, item) => total + item.cost,
-      0
-    );
-    let estCost = document.getElementsByClassName("est-cost");
-    // console.log(estCost);
-    estCost[0].innerHTML = "$" + totalCost.toFixed(2);
-    estCost[1].innerHTML = "$" + totalCost.toFixed(2);
-
-    let totalTime = selectedItemsData.reduce(
-      (total, item) => total + item.timing,
-      0
-    );
-    let estTime = document.getElementsByClassName("est-time");
-    // console.log(estTime);
-    estTime[0].innerHTML = totalTime + " minutes";
-    estTime[1].innerHTML = totalTime + " minutes";
+      body: JSON.stringify(selectedItemsData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update HTML elements with the calculated data
+        updateHtmlElements(data, userInput);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
+}
+
+function updateHtmlElements(data, userInput) {
+  // Update the HTML elements with the received data
+  // let subtotalElements = document.querySelectorAll(".subtotal");
+  // let estFeesElements = document.querySelectorAll(".est-fees");
+  // let estCostElements = document.querySelectorAll(".est-cost");
+  // let prepTimeElements = document.querySelectorAll(".prep-time");
+  // let estTimeElements = document.querySelectorAll(".est-time");
+
+  // subtotalElements.forEach((element) => {
+  //   element.innerHTML = "$" + data.subtotal.toFixed(2);
+  // });
+
+  // estFeesElements.forEach((element) => {
+  //   element.innerHTML = "$" + data.uberFees.toFixed(2);
+  // });
+
+  // estCostElements.forEach((element) => {
+  //   element.innerHTML = "$" + data.uberTotalCost.toFixed(2);
+  // });
+
+  // prepTimeElements.forEach((element) => {
+  //   element.innerHTML = data.totalTime.toFixed(0) + " minutes";
+  // });
+
+  // estTimeElements.forEach((element) => {
+  //   element.innerHTML =
+  //     (data.totalTime + userInput * (5 / 4)).toFixed(0) + " minutes";
+  // });
+
+  document.getElementById("uber-subtotal").innerHTML =
+    "$" + data.subtotal.toFixed(2);
+  document.getElementById("uber-est-fees").innerHTML =
+    "$" + data.uberFees.toFixed(2);
+  document.getElementById("uber-est-cost").innerHTML =
+    "$" + data.uberTotalCost.toFixed(2);
+  document.getElementById("uber-prep-time").innerHTML =
+    data.totalTime.toFixed(0) + " minutes";
+  document.getElementById("uber-est-time").innerHTML =
+    (data.totalTime + userInput * (5 / 4)).toFixed(0) + " minutes";
+
+  // Update the HTML elements with the received data for Door Dash
+  document.getElementById("door-dash-subtotal").innerHTML =
+    "$" + data.subtotal.toFixed(2);
+  document.getElementById("door-dash-est-fees").innerHTML =
+    "$" + data.doorDashFees.toFixed(2);
+  document.getElementById("door-dash-est-cost").innerHTML =
+    "$" + data.doorDashTotalCost.toFixed(2);
+  document.getElementById("door-dash-prep-time").innerHTML =
+    data.totalTime.toFixed(0) + " minutes";
+  document.getElementById("door-dash-est-time").innerHTML =
+    (data.totalTime + userInput * (5 / 4)).toFixed(0) + " minutes";
 }

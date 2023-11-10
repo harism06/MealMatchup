@@ -36,59 +36,62 @@ app.get("/restaurants/restaurant-info", (req, res) => {
 app.post("/restaurants/userData", (req, res) => {
   // Log the incoming JSON data from the client
   const userData = req.body;
-  let subtotal;
-  let uberFees;
-  let doorDashFees;
-  let totalTime;
+  let subtotal = getSubtotal(userData);
+  let uberFees = getUberFees(subtotal);
+  let doorDashFees = getDoorDashFees(subtotal);
+  let uberTotalCost = uberTotal(uberFees, subtotal);
+  let doorDashTotalCost = doorDashTotal(doorDashFees, subtotal);
+  let totalTime = timeToCook(userData);
 
-  console.log("Received user data:", userData);
-  console.log(getSubtotal(userData));
-  getUberFees(subtotal);
-  getDoorDashFees(subtotal);
-  uberTotal(uberFees);
-  doorDashTotal(doorDashFees);
-  console.log(timeToCook(totalTime));
+  // Extract relevant information for logging
+  const itemsInfo = userData
+    .map((item) => `${item.name} - $${item.cost.toFixed(2)}`)
+    .join(", ");
+  const totalCost = userData
+    .reduce((total, item) => total + item.cost, 0)
+    .toFixed(2);
+  const cookTime = userData.reduce((total, item) => total + item.timing, 0);
+
+  console.log(`Received order for items: ${itemsInfo}`);
+  console.log(`Total Cost: $${totalCost}`);
+  console.log(`Total Time to Cook: ${cookTime} minutes`);
 
   function getSubtotal(userData) {
-    subtotal = userData.reduce((total, item) => total + item.cost, 0);
-    return subtotal;
+    return userData.reduce((total, item) => total + item.cost, 0);
   }
 
   function getUberFees(subtotal) {
     let deliveryFee = subtotal * (1 / 4);
     let serviceFee = 10;
-
-    uberFees = deliveryFee + serviceFee;
-
-    return uberFees;
+    return deliveryFee + serviceFee;
   }
 
   function getDoorDashFees(subtotal) {
     let deliveryFee = subtotal * (1 / 10);
     let serviceFee = 15;
-
-    doorDashFees = deliveryFee + serviceFee;
-
-    return doorDashFees;
+    return deliveryFee + serviceFee;
   }
 
-  function uberTotal(uberFees) {
-    let uberTotal = subtotal + uberFees;
-    return uberTotal;
+  function uberTotal(uberFees, subtotal) {
+    return subtotal + uberFees;
   }
 
-  function doorDashTotal(doorDashFees) {
-    let doorDashTotal = subtotal + doorDashFees;
-    return doorDashTotal;
+  function doorDashTotal(doorDashFees, subtotal) {
+    return subtotal + doorDashFees;
   }
 
-  function timeToCook(totalTime) {
-    totalTime = userData.reduce((total, item) => total + item.timing, 0);
-    return totalTime;
+  function timeToCook(userData) {
+    return userData.reduce((total, item) => total + item.timing, 0);
   }
 
-  // Send a response if needed
-  res.send("Data received successfully");
+  res.json({
+    subtotal,
+    uberFees,
+    doorDashFees,
+    uberTotalCost,
+    doorDashTotalCost,
+    totalTime,
+  });
 });
 
 app.listen(port, () => {

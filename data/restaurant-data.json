@@ -3,7 +3,6 @@
     "id": 0,
     "name": "Dominos",
     "img": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Domino%27s_pizza_logo.svg",
-    "ratings": 4.5,
     "menu": [
       {
         "id": 0,
@@ -41,7 +40,6 @@
     "id": 1,
     "name": "Pizza Hut",
     "img": "https://www.theexaminernews.com/examiner-news/wp-content/uploads/2012/01/Pizza_Hut.png",
-    "ratings": 3.9,
     "menu": [
       {
         "id": 0,
@@ -79,7 +77,7 @@
     "id": 2,
     "name": "McDonalds",
     "img": "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
-    "ratings": 4.2,
+
     "menu": [
       {
         "id": 0,
@@ -117,7 +115,6 @@
     "id": 3,
     "name": "Chipotle",
     "img": "https://cdn-fsly.yottaa.net/555a305b2bb0ac71b9002d22/4a6e24e07e33013b5e040ead9ecbf798.yottaa.net/v~4b.2eb.0.0/tenantlogos/7616.png",
-    "ratings": 4.0,
     "menu": [
       {
         "id": 0,
@@ -155,7 +152,6 @@
     "id": 4,
     "name": "Subway",
     "img": "https://i.insider.com/57b231c1db5ce94f008b6df4?width=500&format=jpeg&auto=webp",
-    "ratings": 4.3,
     "menu": [
       {
         "id": 0,
@@ -193,7 +189,6 @@
     "id": 5,
     "name": "Panda Express",
     "img": "https://cdn.cookielaw.org/logos/fbcad385-5bbd-48ba-97d4-e5bcabcd10b9/67c1852a-0424-4c45-ae27-c587b2b01745/573a432a-97c1-4b6f-b44e-1911f400a20f/1200px-Panda_Express_logo.svg.png",
-    "ratings": 3.7,
     "menu": [
       {
         "id": 0,
@@ -231,7 +226,6 @@
     "id": 6,
     "name": "Dairy Queen",
     "img": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Dairy_Queen_logo.svg",
-    "ratings": 4.6,
     "menu": [
       {
         "id": 0,
@@ -269,7 +263,6 @@
     "id": 7,
     "name": "Burger King",
     "img": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Burger_King_2020.svg",
-    "ratings": 4.6,
     "menu": [
       {
         "id": 0,
@@ -307,7 +300,6 @@
     "id": 8,
     "name": "Whataburger",
     "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Whataburger_logo.svg",
-    "ratings": 4.1,
     "menu": [
       {
         "id": 0,
@@ -345,7 +337,6 @@
     "id": 9,
     "name": "Chick-fil-A",
     "img": "https://www.krystalklean.com/wp-content/uploads/2020/04/png-transparent-chick-fil-a-logo-chicken-sandwich-chick-fil-a-breakfast-fast-food-50-food-text-fast-food-restaurant.png",
-    "ratings": 3.8,
     "menu": [
       {
         "id": 0,
@@ -383,7 +374,6 @@
     "id": 10,
     "name": "The Cheesecake Factory",
     "img": "https://www.thecheesecakefactory.com/assets/images/Cheesecake_blank_product.svg",
-    "ratings": 4.7,
     "menu": [
       {
         "id": 0,
@@ -421,7 +411,6 @@
     "id": 11,
     "name": "Taco Bell",
     "img": "https://upload.wikimedia.org/wikipedia/en/b/b3/Taco_Bell_2016.svg",
-    "ratings": 4.2,
     "menu": [
       {
         "id": 0,
@@ -459,7 +448,6 @@
     "id": 12,
     "name": "KFC",
     "img": "https://upload.wikimedia.org/wikipedia/en/5/57/KFC_logo-image.svg",
-    "ratings": 4.0,
     "menu": [
       {
         "id": 0,
@@ -497,7 +485,6 @@
     "id": 13,
     "name": "Wendy's",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRINiC0VEj69xrRNKl52hIhXR82J5_iOZ2S3n3w_SIUwARJHL9t",
-    "ratings": 4.5,
     "menu": [
       {
         "id": 0,
@@ -535,7 +522,6 @@
     "id": 14,
     "name": "Starbucks",
     "img": "https://upload.wikimedia.org/wikipedia/de/8/8d/Starbucks_Logo_ab_2011.svg",
-    "ratings": 3.9,
     "menu": [
       {
         "id": 0,
@@ -573,7 +559,6 @@
     "id": 15,
     "name": "Olive Garden",
     "img": "https://seeklogo.com/images/O/olive-garden-logo-E35EBA47ED-seeklogo.com.png",
-    "ratings": 4.3,
     "menu": [
       {
         "id": 0,
@@ -611,7 +596,6 @@
     "id": 16,
     "name": "IHOP",
     "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/IHOP_logo.svg",
-    "ratings": 4.6,
     "menu": [
       {
         "id": 0,
@@ -649,7 +633,6 @@
     "id": 17,
     "name": "Taco Cabana",
     "img": "https://media-cdn.grubhub.com/image/upload/aidvyp0hr0wwnjrrxtsl",
-    "ratings": 3.7,
     "menu": [
       {
         "id": 0,
@@ -687,7 +670,6 @@
     "id": 18,
     "name": "Cane's",
     "img": "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/westlafayettein/126241817_10158249915399092_7875528893300721649_o_749CB996-ED72-D223-03712CB98D431EC5-749cb822c436a77_749cba1d-a8d6-2221-fa9e3a8ef0b5ca9f.jpg",
-    "ratings": 4.4,
     "menu": [
       {
         "id": 0,
@@ -725,7 +707,6 @@
     "id": 19,
     "name": "Popeyes",
     "img": "https://upload.wikimedia.org/wikipedia/commons/7/73/Popeyes_logo.svg",
-    "ratings": 4.1,
     "menu": [
       {
         "id": 0,
