@@ -1,25 +1,41 @@
-.restaurant-title {
-  font-size: 20px;
+.card-title {
+  font-size: 30px;
+  padding-bottom: 20px;
 }
 
-.restaurant-card {
+.card {
   border: 3px solid black;
   display: inline-block;
   padding: 10px;
   margin: 5px;
 }
 
-.restaurant-img {
-  width: 200px;
-  height: 200px;
+.card-img-top {
+  height: 250px;
 }
 
-.restaurant-card,
-.restaurant-img,
-.restaurant-title {
+.card,
+.card-img-top,
+.card-title {
   text-align: center;
 }
 
 h1 {
   text-align: center;
+  padding: 10px;
+  color: white;
+  /* padding-bottom: 50px; */
+}
+
+.home-page {
+  background: linear-gradient(to bottom, #b22222, #8b0000);
+}
+
+#restaurant-cards {
+  padding: 30px;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #b22222; /* Set text color to a dark red shade */
 }

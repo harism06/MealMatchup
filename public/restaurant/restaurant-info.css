@@ -17,4 +17,6 @@
 
 body {
   padding-bottom: 200px;
+  padding-left: 50px;
+  background: linear-gradient(to bottom, #b22222, #8b0000);
 }

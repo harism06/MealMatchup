@@ -3,7 +3,7 @@ function loadCards() {
     .then((response) => response.json())
     .then((json) =>
       json.forEach((data) => {
-        let allCards = document.getElementById("search-results");
+        let allCards = document.getElementById("restaurant-cards");
         allCards.appendChild(getCard(data));
         // console.log(data.ratings);
       })
@@ -11,18 +11,24 @@ function loadCards() {
 }
 
 function getCard(cardData) {
+  let cardRows = document.createElement("div");
   let container = document.createElement("div");
   let img = document.createElement("img");
-  let title = document.createElement("p");
-  let ratings = document.createElement("p");
-  let showRestaurantButton = document.createElement("button");
+  let cardBody = document.createElement("div");
+  let title = document.createElement("h5");
+  let showRestaurantButton = document.createElement("a");
 
-  container.classList.add("restaurant-card");
-  img.classList.add("restaurant-img");
-  title.classList.add("restaurant-title");
-  ratings.classList.add("restaurant-ratings");
+  cardRows.classList.add("col");
+  container.classList.add("card");
 
-  showRestaurantButton.classList.add("restaurant-button");
+  container.style.width = "18rem";
+  img.classList.add("card-img-top");
+  cardBody.classList.add("card-body");
+  title.classList.add("card-title");
+  title.style.color = "#b22222";
+
+  // showRestaurantButton.type = "button";
+  showRestaurantButton.classList.add("btn", "btn-outline-danger");
   showRestaurantButton.onclick = () => {
     location.href = `../restaurant/restaurant-info.html?restaurantId=${cardData.id}`;
   };
@@ -30,15 +36,15 @@ function getCard(cardData) {
   img.setAttribute("src", cardData.img);
   showRestaurantButton.setAttribute("id", cardData.id);
 
+  cardRows.appendChild(container);
   container.appendChild(img);
-  container.appendChild(title);
-  container.appendChild(ratings);
-  container.appendChild(showRestaurantButton);
+  container.appendChild(cardBody);
+  cardBody.appendChild(title);
+  cardBody.appendChild(showRestaurantButton);
 
   title.innerHTML = cardData.name;
-  ratings.innerHTML = "\n";
   showRestaurantButton.innerHTML = "View Restaurant";
-  return container;
+  return cardRows;
 }
 
 window.onload = loadCards;

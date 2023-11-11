@@ -34,13 +34,15 @@ function loadMenuItems(restaurant) {
     let allMenu = document.getElementById("menu-items");
     let itemContainer = document.createElement("div");
     let checkbox = document.createElement("input");
-    let itemName = document.createElement("span");
+    let itemName = document.createElement("label");
 
-    itemContainer.classList.add("item-container");
-    itemName.classList.add("item-name");
+    itemContainer.classList.add("form-check");
+    itemName.classList.add("form-check-label");
 
     checkbox.setAttribute("id", item.id);
+    checkbox.classList.add("form-check-input");
     checkbox.setAttribute("type", "checkbox");
+    itemName.setAttribute("for", "flexCheckDefault");
 
     allMenu.appendChild(itemContainer);
     itemContainer.appendChild(checkbox);
@@ -61,8 +63,11 @@ function confirmOrder() {
   let lastInput = checkboxes[checkboxes.length - 1];
   let userInput = lastInput.value;
 
-  if (!userInput || userInput <= 0) {
+  if (!userInput) {
     alert("Please enter the mileage for delivery.");
+    return; // Stop further execution
+  } else if (userInput <= 0 || userInput > 35) {
+    alert("Please enter a mileage value between 1 and 35.");
     return; // Stop further execution
   }
 
@@ -105,33 +110,6 @@ function confirmOrder() {
 
 function updateHtmlElements(data, userInput) {
   // Update the HTML elements with the received data
-  // let subtotalElements = document.querySelectorAll(".subtotal");
-  // let estFeesElements = document.querySelectorAll(".est-fees");
-  // let estCostElements = document.querySelectorAll(".est-cost");
-  // let prepTimeElements = document.querySelectorAll(".prep-time");
-  // let estTimeElements = document.querySelectorAll(".est-time");
-
-  // subtotalElements.forEach((element) => {
-  //   element.innerHTML = "$" + data.subtotal.toFixed(2);
-  // });
-
-  // estFeesElements.forEach((element) => {
-  //   element.innerHTML = "$" + data.uberFees.toFixed(2);
-  // });
-
-  // estCostElements.forEach((element) => {
-  //   element.innerHTML = "$" + data.uberTotalCost.toFixed(2);
-  // });
-
-  // prepTimeElements.forEach((element) => {
-  //   element.innerHTML = data.totalTime.toFixed(0) + " minutes";
-  // });
-
-  // estTimeElements.forEach((element) => {
-  //   element.innerHTML =
-  //     (data.totalTime + userInput * (5 / 4)).toFixed(0) + " minutes";
-  // });
-
   document.getElementById("uber-subtotal").innerHTML =
     "$" + data.subtotal.toFixed(2);
   document.getElementById("uber-est-fees").innerHTML =
@@ -141,7 +119,7 @@ function updateHtmlElements(data, userInput) {
   document.getElementById("uber-prep-time").innerHTML =
     data.totalTime.toFixed(0) + " minutes";
   document.getElementById("uber-est-time").innerHTML =
-    (data.totalTime + userInput * (5 / 4)).toFixed(0) + " minutes";
+    (data.totalTime + userInput * (7 / 4)).toFixed(0) + " minutes";
 
   // Update the HTML elements with the received data for Door Dash
   document.getElementById("door-dash-subtotal").innerHTML =
