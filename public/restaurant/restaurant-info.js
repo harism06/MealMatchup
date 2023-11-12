@@ -18,11 +18,24 @@ function getRestaurantDataById(restaurantId) {
 }
 
 function populateRestaurantData(restaurant) {
-  let restaurantImg = document.getElementById("restaurant-img");
-  let restaurantName = document.getElementById("restaurant-title");
+  let img = document.querySelector("#img");
+  let titleBar = document.getElementById("navbar-title");
+  let restaurantImg = document.createElement("img");
+  let restaurantName = document.createElement("h1");
 
+  restaurantImg.setAttribute("id", "restaurant-img");
+  restaurantName.setAttribute("id", "restaurant-title");
   restaurantImg.setAttribute("src", restaurant.img);
   restaurantName.innerHTML = restaurant.name;
+
+  restaurantImg.classList.add("d-block", "mx-auto");
+  restaurantImg.style.padding = "10px";
+  titleBar.style.maxWidth = "400px";
+  titleBar.style.margin = "0 auto";
+  titleBar.style.borderRadius = "10px";
+
+  img.appendChild(restaurantImg);
+  titleBar.appendChild(restaurantName);
 
   loadMenuItems(restaurant);
 }

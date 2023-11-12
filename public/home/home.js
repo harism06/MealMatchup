@@ -23,6 +23,7 @@ function getCard(cardData) {
 
   container.style.width = "18rem";
   img.classList.add("card-img-top");
+  img.style.padding = "10px";
   cardBody.classList.add("card-body");
   title.classList.add("card-title");
   title.style.color = "#b22222";

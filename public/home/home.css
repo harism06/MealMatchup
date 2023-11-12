@@ -29,6 +29,7 @@ h1 {
 
 .home-page {
   background: linear-gradient(to bottom, #b22222, #8b0000);
+  /* background: red; */
 }
 
 #restaurant-cards {
