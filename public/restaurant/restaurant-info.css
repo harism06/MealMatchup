@@ -1,3 +1,7 @@
+#menu-items {
+  padding: 10px;
+}
+
 #restaurant-title {
   font-size: 45px;
   color: #b22222;
@@ -22,6 +26,6 @@
 
 body {
   padding-bottom: 200px;
-  padding-left: 50px;
+  /* padding-left: 50px; */
   background: linear-gradient(to bottom, #b22222, #8b0000);
 }

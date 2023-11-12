@@ -1,13 +1,11 @@
+#website-title {
+  font-size: 45px;
+  color: #b22222;
+}
+
 .card-title {
   font-size: 30px;
   padding-bottom: 20px;
-}
-
-.card {
-  border: 3px solid black;
-  display: inline-block;
-  padding: 10px;
-  margin: 5px;
 }
 
 .card-img-top {
@@ -20,11 +18,12 @@
   text-align: center;
 }
 
-h1 {
-  text-align: center;
+.card {
+  width: 18rem;
+}
+
+.card-img-top {
   padding: 10px;
-  color: white;
-  /* padding-bottom: 50px; */
 }
 
 .home-page {
@@ -34,9 +33,4 @@ h1 {
 
 #restaurant-cards {
   padding: 30px;
-}
-
-.btn-primary {
-  background-color: white;
-  color: #b22222; /* Set text color to a dark red shade */
 }

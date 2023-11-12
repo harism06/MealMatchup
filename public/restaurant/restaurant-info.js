@@ -18,7 +18,7 @@ function getRestaurantDataById(restaurantId) {
 }
 
 function populateRestaurantData(restaurant) {
-  let img = document.querySelector("#img");
+  let imgBar = document.getElementById("navbar-img");
   let titleBar = document.getElementById("navbar-title");
   let restaurantImg = document.createElement("img");
   let restaurantName = document.createElement("h1");
@@ -31,10 +31,13 @@ function populateRestaurantData(restaurant) {
   restaurantImg.classList.add("d-block", "mx-auto");
   restaurantImg.style.padding = "10px";
   titleBar.style.maxWidth = "400px";
-  titleBar.style.margin = "0 auto";
+  titleBar.style.margin = "0px auto";
   titleBar.style.borderRadius = "10px";
+  imgBar.style.maxWidth = "400px";
+  imgBar.style.margin = "10px auto";
+  imgBar.style.borderRadius = "10px";
 
-  img.appendChild(restaurantImg);
+  imgBar.appendChild(restaurantImg);
   titleBar.appendChild(restaurantName);
 
   loadMenuItems(restaurant);
