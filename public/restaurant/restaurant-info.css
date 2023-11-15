@@ -2,6 +2,10 @@
   padding: 10px;
 }
 
+#uber-eats-total {
+  margin-right: -400px;
+}
+
 #restaurant-title {
   font-size: 45px;
   color: #b22222;
@@ -16,16 +20,19 @@
   width: 100px;
 }
 
-#uber-eats-total,
-#door-dash-total {
-  display: inline-block;
-  padding: 15px;
-  border: 5px black solid;
-  margin: 2px;
+.card {
+  padding: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.btn {
+  margin: 25px auto;
 }
 
 body {
   padding-bottom: 200px;
-  /* padding-left: 50px; */
   background: linear-gradient(to bottom, #b22222, #8b0000);
 }

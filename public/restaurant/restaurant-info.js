@@ -48,19 +48,22 @@ function loadMenuItems(restaurant) {
 
   allMenu.forEach((item) => {
     let allMenu = document.getElementById("menu-items");
+    let itemsList = document.createElement("li");
     let itemContainer = document.createElement("div");
     let checkbox = document.createElement("input");
     let itemName = document.createElement("label");
 
     itemContainer.classList.add("form-check");
     itemName.classList.add("form-check-label");
+    itemsList.classList.add("list-group-item");
 
     checkbox.setAttribute("id", item.id);
     checkbox.classList.add("form-check-input");
     checkbox.setAttribute("type", "checkbox");
     itemName.setAttribute("for", "flexCheckDefault");
 
-    allMenu.appendChild(itemContainer);
+    allMenu.appendChild(itemsList);
+    itemsList.appendChild(itemContainer);
     itemContainer.appendChild(checkbox);
     itemContainer.appendChild(itemName);
     // console.log(data);

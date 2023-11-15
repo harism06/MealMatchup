@@ -30,10 +30,11 @@
         class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"
         id="navbar-img"
         style="
-          max-width: 150px;
+          max-width: 250px;
           margin: 40px auto;
-          margin-bottom: 10px;
-          border-radius: 10px;
+          margin-bottom: -15px;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
         "
       >
         <h2>Menu:</h2>
@@ -41,41 +42,123 @@
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"
         id="navbar-img"
-        style="max-width: 200px; margin: 0px auto; border-radius: 10px"
+        style="
+          max-width: 250px;
+          margin: 0px auto;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+        "
       >
-        <div id="menu-items"></div>
+        <ul id="menu-items" class="list-group list-group-flush"></ul>
       </nav>
-      <p id="distance-question">
-        How far is the restaurant from the drop-off location (in miles)?
-      </p>
-      <div class="input-group mb-3" style="width: 400px">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter the number of miles"
-          aria-label="Enter the number of miles"
-          aria-describedby="basic-addon2"
-        />
-        <span class="input-group-text" id="basic-addon2">miles</span>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"
+        style="
+          max-width: 500px;
+          margin: 0px auto;
+          margin-top: 40px;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+        "
+      >
+        <p id="distance-question">
+          How far is the restaurant from the drop-off location (in miles)?
+        </p>
+      </nav>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"
+        style="
+          max-width: 500px;
+          margin: 0px auto;
+          margin-top: -15px;
+          margin-bottom: 10px;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+        "
+      >
+        <div class="input-group mb-3" style="width: 400px">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter the number of miles"
+            aria-label="Enter the number of miles"
+            aria-describedby="basic-addon2"
+          />
+          <span class="input-group-text" id="basic-addon2">miles</span>
+        </div>
+      </nav>
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg">Confirm Order!</button>
       </div>
-
-      <button>Confirm Order!</button>
-      <br /><br />
-      <div id="uber-eats-total">
-        <h3>UberEats</h3>
-        <p>Subtotal: <span id="uber-subtotal"></span></p>
-        <p>Estimated Fees: <span id="uber-est-fees"></span></p>
-        <p>Total Cost: <span id="uber-est-cost"></span></p>
-        <p>Time to Cook: <span id="uber-prep-time"></span></p>
-        <p>Estimated Time: <span id="uber-est-time"></span></p>
-      </div>
-      <div id="door-dash-total">
-        <h3>DoorDash</h3>
-        <p>Subtotal: <span id="door-dash-subtotal"></span></p>
-        <p>Estimated Fees: <span id="door-dash-est-fees"></span></p>
-        <p>Total Cost: <span id="door-dash-est-cost"></span></p>
-        <p>Time to Cook: <span id="door-dash-prep-time"></span></p>
-        <p>Estimated Time: <span id="door-dash-est-time"></span></p>
+      <div class="container my-4">
+        <div class="row">
+          <div class="col col-md-3 mx-auto">
+            <div id="uber-eats-total" class="card" style="width: 18rem">
+              <div class="class-body">
+                <h3 class="card-title">UberEats</h3>
+                <div class="card-text">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <p>Subtotal: <span id="uber-subtotal"></span></p>
+                    </li>
+                    <li class="list-group-item">
+                      <p>Estimated Fees: <span id="uber-est-fees"></span></p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong
+                        ><p>Total Cost: <span id="uber-est-cost"></span></p
+                      ></strong>
+                    </li>
+                    <li class="list-group-item">
+                      <p>Time to Cook: <span id="uber-prep-time"></span></p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong
+                        ><p>Estimated Time: <span id="uber-est-time"></span></p
+                      ></strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-3 mx-auto">
+            <div id="door-dash-total" class="card" style="width: 18rem">
+              <div class="class-body">
+                <h3 class="card-title">DoorDash</h3>
+                <div class="card-text">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <p>Subtotal: <span id="door-dash-subtotal"></span></p>
+                    </li>
+                    <li class="list-group-item">
+                      <p>
+                        Estimated Fees: <span id="door-dash-est-fees"></span>
+                      </p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong
+                        ><p>Total Cost: <span id="door-dash-est-cost"></span></p
+                      ></strong>
+                    </li>
+                    <li class="list-group-item">
+                      <p>
+                        Time to Cook: <span id="door-dash-prep-time"></span>
+                      </p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong
+                        ><p>
+                          Estimated Time:
+                          <span id="door-dash-est-time"></span></p
+                      ></strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
