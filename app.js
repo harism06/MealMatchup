@@ -54,7 +54,7 @@ app.post("/restaurants/userData", (req, res) => {
 
   console.log(`Received order for items: ${itemsInfo}`);
   console.log(`Total Cost: $${totalCost}`);
-  console.log(`Total Time to Cook: ${cookTime} minutes`);
+  console.log(`Total Time to Cook: ${cookTime} minutes\n`);
 
   function getSubtotal(userData) {
     return userData.reduce((total, item) => total + item.cost, 0);

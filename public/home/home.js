@@ -5,7 +5,6 @@ function loadCards() {
       json.forEach((data) => {
         let allCards = document.getElementById("restaurant-cards");
         allCards.appendChild(getCard(data));
-        // console.log(data.ratings);
       })
     );
 }

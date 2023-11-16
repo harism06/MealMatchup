@@ -2,11 +2,8 @@
   padding: 10px;
 }
 
-#uber-eats-total {
-  margin-right: -400px;
-}
-
 #restaurant-title {
+  text-align: center;
   font-size: 45px;
   color: #b22222;
 }

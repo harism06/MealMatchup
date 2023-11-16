@@ -3,17 +3,18 @@ let allMenu;
 window.onload = function () {
   const urlParams = new URLSearchParams(window.location.search);
   const restaurantId = urlParams.get("restaurantId");
-  console.log(restaurantId);
+  // console.log(restaurantId);
 
   getRestaurantDataById(restaurantId);
 };
 
 function getRestaurantDataById(restaurantId) {
-  fetch(`http://localhost:3000/restaurants/restaurant-info?id=${restaurantId}`)
+  fetch(`http://localhost:3000/restaurants/restaurant-info`)
     .then((response) => response.json())
     .then((data) => {
       let restaurant = data.find((item) => item.id == restaurantId);
       populateRestaurantData(restaurant);
+      // console.log(restaurant);
     });
 }
 
