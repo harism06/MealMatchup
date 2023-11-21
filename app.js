@@ -47,14 +47,33 @@ app.post("/restaurants/userData", (req, res) => {
   const itemsInfo = userData
     .map((item) => `${item.name} - $${item.cost.toFixed(2)}`)
     .join(", ");
+  const items = userData.map((item) => `${item.name}`).join(", ");
   const totalCost = userData
     .reduce((total, item) => total + item.cost, 0)
     .toFixed(2);
   const cookTime = userData.reduce((total, item) => total + item.timing, 0);
 
-  console.log(`Received order for items: ${itemsInfo}`);
+  console.log(`\nReceived order for items: ${itemsInfo}`);
   console.log(`Total Cost: $${totalCost}`);
   console.log(`Total Time to Cook: ${cookTime} minutes\n`);
+
+  let remainingTime = cookTime;
+
+  // Function to update the countdown
+  function updateCountdown() {
+    console.log(`${items} will be ready in ${remainingTime} minutes`);
+    remainingTime--;
+
+    if (remainingTime >= 0) {
+      // Update the countdown every minute (60000 milliseconds)
+      setTimeout(updateCountdown, 60000);
+    } else {
+      console.log(`${items} is ready!`);
+    }
+  }
+
+  // Start the countdown
+  updateCountdown();
 
   function getSubtotal(userData) {
     return userData.reduce((total, item) => total + item.cost, 0);

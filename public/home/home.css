@@ -1,6 +1,13 @@
+#first-title {
+  color: #999999;
+}
+
+#second-title {
+  color: #e63946;
+}
+
 #website-title {
   font-size: 45px;
-  color: #b22222;
 }
 
 .card-title {
