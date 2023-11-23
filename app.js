@@ -113,6 +113,6 @@ app.post("/restaurants/userData", (req, res) => {
   });
 });
 
-app.listen(port, () => {
+app.listen(process.env.port || port, () => {
   console.log(`MealMatchup is available on http://localhost:${port}`);
 });
