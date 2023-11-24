@@ -7,7 +7,7 @@ MealMatchup is a web application that compares UberEats and DoorDash food delive
 - [🌟 Features](#-features)
 - [⚙️ Installation](#%EF%B8%8F-installation)
 - [🚀 Usage](#-usage)
-- [🛠️ Technologies](#%EF%B8%8F-technologies)
+- [🛠️ Tools Utilized](#%EF%B8%8F-tools-utilized)
 - [🤝 Contributing](#-contributing)
 - [📝 License](#-license)
 
@@ -28,7 +28,7 @@ MealMatchup is a web application that compares UberEats and DoorDash food delive
 1. Start the application: `npm start`
 2. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
-## 🛠️ Technologies
+## 🛠️ Tools Utilized
 
 - **Frontend:**
 
