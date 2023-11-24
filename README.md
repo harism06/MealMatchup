@@ -1,6 +1,7 @@
 # 🍔 MealMatchup
 
-MealMatchup is a web application that allows users to discover and order food from various restaurants.
+MealMatchup is a web application that compares UberEats and DoorDash food delivery companies by time and money efficiency, enabling users to discover menu options from various restaurants.
+**NOTE: THIS APPLICATION UTILIZES MOCK DATA FOR EDUCATIONAL PURPOSES ONLY. WHILE IT SIMULATES THE COMPARISON OF UBEREATS AND DOORDASH, PLEASE BE AWARE THAT THE TIME AND COST EFFICIENCY MEASUREMENTS ARE FOR ILLUSTRATIVE PURPOSES AND DO NOT REFLECT REAL-WORLD DATA. THE PRIMARY GOAL IS TO PROVIDE USERS WITH AN OPPORTUNITY TO EXPLORE MENU OPTIONS FROM VARIOUS RESTAURANTS IN A SIMULATED ENVIRONMENT.**
 
 ## 📋 Table of Contents
 
@@ -15,8 +16,8 @@ MealMatchup is a web application that allows users to discover and order food fr
 
 - **Restaurant Discovery:** Explore a variety of restaurants and their menus.
 - **Order Placement:** Easily place orders for your favorite meals.
-- **Delivery Estimates:** Get estimated delivery times based on your location.
-- **Cost Estimates:** View cost breakdowns including subtotal, fees, and total cost.
+- **Delivery Estimates:** Receive estimated delivery times based on your location and preferred delivery service.
+- **Cost Estimates:** View detailed breakdowns, including subtotal, fees, and total cost tailored to your chosen delivery service.
 
 ## ⚙️ Installation
 
