@@ -4,12 +4,12 @@ MealMatchup is a web application that allows users to discover and order food fr
 
 ## 📋 Table of Contents
 
-- [🌟Features](#🌟-features)
-- [⚙️Installation](#⚙️-installation)
-- [🚀Usage](#🚀-usage)
-- [🛠️Technologies](#🛠️-technologies)
-- [🤝Contributing](#🤝-contributing)
-- [📝License](#📝-license)
+- [🌟 Features](#🌟-features)
+- [⚙️ Installation](#⚙️-installation)
+- [🚀 Usage](#🚀-usage)
+- [🛠️ Technologies](#🛠️-technologies)
+- [🤝 Contributing](#🤝-contributing)
+- [📝 License](#📝-license)
 
 ## 🌟 Features
 
