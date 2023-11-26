@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node app.js",
-    "build": "echo 'Build not needed for this project'"
+    "build": "npm install --production"
   },
   "license": "MIT",
   "dependencies": {
