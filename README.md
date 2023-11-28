@@ -20,13 +20,22 @@ MealMatchup is a web application that compares UberEats and DoorDash food delive
 
 ## ⚙️ Installation
 
-1. Clone the repository: `git clone https://github.com/harism06/food_delivery_app.git`
-2. Navigate to the project directory: `cd food_delivery_app`
+1. **Install [Node.js](https://nodejs.org/)**
+   - Download and install Node.js from the official website: [Node.js](https://nodejs.org/)
+2. **Download the Repository**
+   - Click on the "Code" button on the project's Github page.
+   - Select "Download ZIP."
+   - Extract the ZIP file to your desired location.
+3. **Navigate to the Project Directory:**
+   - Open a terminal or command prompt
+   - Use the following command to navigate to the project directory: `cd path/to/MealMatchup`
+   - Replace `path/to/MealMatchup` with the actual path where you extracted the ZIP file.
 
 ## 🚀 Usage
 
-1. Start the application: `npm start`
-2. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+1. Navigate to the Project Directory
+2. Start the application: `npm start`
+3. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
 ## 🛠️ Tools Utilized
 
